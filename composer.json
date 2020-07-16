@@ -1,0 +1,20 @@
+{
+  "name": "vendor_name/core",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Didier Moindreau",
+      "email": "dmoindreau@gmail.com"
+    }
+  ],
+  "require": {
+    
+  },
+  "autoload": {
+    "psr-4": {
+      "Core\\" : "src"
+    }
+  }
+}
