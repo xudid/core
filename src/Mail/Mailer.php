@@ -96,15 +96,12 @@ class Mailer
             $debug .= "$level: $str\n";
         };
         if($this->mail->send()){
-            echo 'Message has been sent';
+            $this->clearAll();
+            return true;
         }else{
-            echo $debug;
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $this->mail->ErrorInfo;
-            //...later
-            echo $debug;
+            $this->clearAll();
+            throw new Exception($debug . '<br>' . $this->mail->ErrorInfo);
         }
-        $this->clearAll();
     }
 
     /**
