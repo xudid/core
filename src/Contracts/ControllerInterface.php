@@ -7,4 +7,5 @@ interface ControllerInterface
 	public function modelManager(string $modelClass) : ManagerInterface;
 	public function queryBuilder() : QueryBuilderInterface;
 	public function routeTo(string $routeName);
+	public function redirectTo(string $url);
 }

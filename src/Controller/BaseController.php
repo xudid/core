@@ -6,6 +6,7 @@ use Core\Contracts\ControllerInterface;
 use Core\Contracts\ManagerInterface;
 use Core\Contracts\QueryBuilderInterface;
 use Core\Contracts\RouterInterface;
+use GuzzleHttp\Psr7\Response;
 use Psr\Container\ContainerInterface;
 use function Http\Response\send;
 
@@ -59,8 +60,14 @@ class BaseController implements ControllerInterface
 	public function routeTo(string $routeName, array $params = [])
 	{
 		$url = $this->router->generateUrl($routeName, $params);
+		$this->redirectTo($url);
+	}
+
+	public function redirectTo(string $url)
+	{
 		$this->response = $this->response->withStatus(302)->withHeader('Location', $url);
 		$this->send();
 		exit();
 	}
+
 }
