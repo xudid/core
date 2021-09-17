@@ -21,7 +21,7 @@ class Password
 
     public static function verify(string $hash, string $password)
     {
-        password_verify($password, $hash) ?: false;
+        return password_verify($password, $hash);
     }
 
     public static function algo($param)
