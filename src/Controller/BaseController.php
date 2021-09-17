@@ -7,6 +7,7 @@ use Core\Contracts\ManagerInterface;
 use Core\Contracts\QueryBuilderInterface;
 use Core\Contracts\RouterInterface;
 use Psr\Container\ContainerInterface;
+use function Http\Response\send;
 
 class BaseController implements ControllerInterface
 {
@@ -42,7 +43,7 @@ class BaseController implements ControllerInterface
 
 	protected function send()
 	{
-
+		send($this->response);
 	}
 
 	public function modelManager(string $modelClass): ManagerInterface
@@ -53,5 +54,13 @@ class BaseController implements ControllerInterface
 	public function queryBuilder(): QueryBuilderInterface
 	{
 		return $this->queryBuilderInterface;
+	}
+
+	public function routeTo(string $routeName, array $params = [])
+	{
+		$url = $this->router->generateUrl($routeName, $params);
+		$this->response = $this->response->withStatus(302)->withHeader('Location', $url);
+		$this->send();
+		exit();
 	}
 }

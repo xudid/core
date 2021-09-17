@@ -2,7 +2,8 @@
 
 namespace Core\Contracts;
 
-class RouterInterface
+interface RouterInterface
 {
+	public function generateUrl(string $routeName, $params): string;
 
 }
