@@ -6,7 +6,6 @@ use Core\Contracts\ControllerInterface;
 use Core\Contracts\ManagerInterface;
 use Core\Contracts\QueryBuilderInterface;
 use Core\Contracts\RouterInterface;
-use GuzzleHttp\Psr7\Response;
 use Psr\Container\ContainerInterface;
 use function Http\Response\send;
 

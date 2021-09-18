@@ -1,11 +1,9 @@
 <?php
 
-namespace Entity\Model;
+namespace Core\Contracts;;
 
 
-use Core\Contracts\DataColumnInterface;
 use Entity\Metadata\Association;
-use Entity\Metadata\DataColumn;
 use Exception;
 use ReflectionException;
 
