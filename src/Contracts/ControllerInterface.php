@@ -2,6 +2,11 @@
 
 namespace Core\Contracts;
 
+/**
+ * Interface ControllerInterface
+ * @package Core\Contracts
+ * @author Didier Moindreau <dmoindreau@gmail.com> on 20/09/2021.
+ */
 interface ControllerInterface
 {
 	public function modelManager(string $modelClass) : ManagerInterface;

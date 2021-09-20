@@ -2,6 +2,11 @@
 
 namespace Core\Contracts;
 
+/**
+ * Interface ManagerInterface
+ * @package Core\Contracts
+ * @author Didier Moindreau <dmoindreau@gmail.com> on 20/09/2021.
+ */
 interface ManagerInterface
 {
 	public function enableDebug();
