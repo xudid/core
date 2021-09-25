@@ -9,7 +9,7 @@ namespace Core\Contracts;
  */
 interface RequestInterface
 {
-	public function setDatabaseAbstractLayer(DaoInterface $databaseAbstractLayer);
+	public function setDDaoInterface(DaoInterface $databaseAbstractLayer);
 
 	public function execute();
 }
