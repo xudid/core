@@ -3,8 +3,6 @@
 namespace Core\Contracts;;
 
 
-use Entity\Metadata\Association;
-use Exception;
 use ReflectionException;
 
 /**
@@ -28,8 +26,6 @@ interface ModelInterface
 	/**
 	 * @return string
 	 */
-	public static function getTableName(): string;
-
 	public static function getTable();
 
 	/**
@@ -51,19 +47,12 @@ interface ModelInterface
 	/**
 	 * @return array
 	 * @throws ReflectionException
-	 * @deprecated
-	 */
-	public static function getTableColumns(): array;
-
-	/**
-	 * @return array
-	 * @throws ReflectionException
 	 */
 	public static function getColumns();
 
 	/**
 	 * @param string $className
-	 * @return Association|false
+	 * @return AssociationInterface|false
 	 */
 	public static function getAssociation(string $className);
 
@@ -73,13 +62,6 @@ interface ModelInterface
 	 * @throws ReflectionException
 	 */
 	public static function getAssociations(): array;
-
-	/**
-	 * @return array
-	 * @throws Exception
-	 * @deprecated
-	 */
-	public static function getTableAssociations();
 
 	/**
 	 * @param string $propertyName
