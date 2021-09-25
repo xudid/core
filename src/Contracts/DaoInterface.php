@@ -19,5 +19,7 @@ interface DaoInterface
 
     public function getDriver();
 
+	public function getDatasource(): DataSourceInterface;
+
 }
 
