@@ -8,19 +8,19 @@ namespace Core\Contracts;
  */
 interface QueryBuilderInterface
 {
-	public function createTable(string $name) : TableRequest;
+	public function createTable(string $name) : TableRequestInterface;
 
-	public function dropTable(string $name) : bool;
+	public function dropTable(string $name) : TableRequestInterface;
 
-	public function select(...$fields): SelectRequest;
+	public function select(...$fields): SelectRequestInterface;
 
-	public function insert(string $table): InsertRequest;
+	public function insert(string $table): InsertRequestInterface;
 
-	public function update(string $table): UpdateRequest;
+	public function update(string $table): UpdateRequestInterface;
 
-	public function delete(... $tables): DeleteRequest;
+	public function delete(... $tables): DeleteRequestInterface;
 
-	public function enableDebug();
+	public function enableDebug():QueryBuilderInterface;
 
-	public function execute(Request $request);
+	public function execute(RequestInterface $request);
 }
