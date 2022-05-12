@@ -34,6 +34,7 @@ class Path
 
     public static function create(string $path)
     {
+        // use mkdir recursively
         $parts = self::parts($path);
         for($i = self::start();$i < count($parts) ;$i++) {
             $part = $parts[$i];
