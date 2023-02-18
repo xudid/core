@@ -9,7 +9,7 @@ use Core\Contracts\RouterInterface;
 use Psr\Container\ContainerInterface;
 use function Http\Response\send;
 
-class BaseController implements ControllerInterface
+class ApplicationController implements ControllerInterface
 {
 	private ContainerInterface $container;
 	private RouterInterface $router;
