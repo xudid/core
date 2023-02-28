@@ -7,8 +7,8 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class BaseController
 {
-    private ServerRequestInterface $request;
-    private ResponseInterface $response;
+    protected ServerRequestInterface $request;
+    protected ResponseInterface $response;
 
     public function __construct(ServerRequestInterface $request, ResponseInterface $response)
     {
