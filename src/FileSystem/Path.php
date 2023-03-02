@@ -47,9 +47,14 @@ class Path
     }
 
     public static function absolute($path): string
-    {
-        $path = static::normalize($path);
-        return $_SERVER['DOCUMENT_ROOT'] .  DIRECTORY_SEPARATOR . $path;
+    { $path = static::normalize($path);
+
+        if (PHP_SAPI == 'cli') {
+            return getcwd() . DIRECTORY_SEPARATOR .$path;
+        } else {
+            return $_SERVER['DOCUMENT_ROOT'] .  DIRECTORY_SEPARATOR . $path;
+
+        }
     }
 
     public static function normalize($path): string
