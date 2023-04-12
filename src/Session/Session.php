@@ -39,6 +39,7 @@ class Session
 		if (self::exists() && self::has($key)) {
 			return $_SESSION[$key];
 		}
+        return null;
 	}
 
 	/**
@@ -64,16 +65,19 @@ class Session
         }
     }
 
-	public static  function debug()
+	public static  function debug(): array
     {
-        echo '<pre>';
         if (self::exists())
         {
-           dump('PHP_SESSION_ACTIVE');
+           return ['active' => true];
         } else {
             $status = session_status();
             $statusString = $status === 0 ? 'PHP_SESSION_DISABLED' : 'PHP_SESSION_NONE';
-            dump($statusString);
+            return [
+                'active' => false,
+                'status' => $status,
+                'status_string' => $statusString,
+            ];
         }
     }
 
