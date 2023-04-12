@@ -16,10 +16,6 @@ class Message
 
     /**
      * Message constructor.
-     * @param Recepient $from
-     * @param Recepient $to
-     * @param string $subject
-     * @param string $content
      */
     public function __construct(Recepient $from, Recepient $to, string $subject, string $content)
     {
@@ -29,21 +25,13 @@ class Message
         $this->content = $content;
     }
 
-    /**
-     * @param string $replyTo
-     * @return self
-     */
-    public function addRecipient(Recepient $recipient): self
+    public function addRecipient(Recepient $recipient): static
     {
         $this->recipients[] = $recipient;
         return $this;
     }
 
-    /**
-     * @param Recepient ...$recepients
-     * @return $this
-     */
-    public function recipients(Recepient ...$recepients)
+    public function recipients(Recepient ...$recepients): static
     {
         if (is_array($recepients)) {
             $this->recipients = array_merge($this->recipients, $recepients);
@@ -55,41 +43,26 @@ class Message
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getRecipients(): array
     {
         return $this->recipients;
     }
 
-    /**
-     * @return string
-     */
     public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @return string
-     */
     public function getFrom(): Recepient
     {
         return $this->from;
     }
 
-    /**
-     * @return string
-     */
     public function getSubject(): string
     {
         return $this->subject;
     }
 
-    /**
-     * @return string
-     */
     public function getContent(): string
     {
         return $this->content;

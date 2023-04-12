@@ -2,7 +2,6 @@
 
 namespace Core\Mail;
 
-
 class Account
 {
     private string $host;
@@ -12,9 +11,6 @@ class Account
 
     /**
      * Account constructor.
-     * @param string $host
-     * @param string $userName
-     * @param string $password
      */
     public function __construct(string $host, ?string $userName, ?string $password)
     {
@@ -23,46 +19,28 @@ class Account
         $this->password = $password;
     }
 
-
-    /**
-     * @return string
-     */
     public function getHost(): string
     {
         return $this->host;
     }
 
-    /**
-     * @param string $host
-     * @return Account
-     */
-    public function setHost(string $host): Account
+    public function setHost(string $host): static
     {
         $this->host = $host;
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getPort(): int
     {
         return $this->port;
     }
 
-    /**
-     * @param int $port
-     * @return Account
-     */
-    public function setPort(int $port): Account
+    public function setPort(int $port): static
     {
         $this->port = $port;
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getUserName(): ?string
     {
         return $this->userName;
@@ -72,29 +50,19 @@ class Account
      * @param string $userName
      * @return Account
      */
-    public function setUserName(?string $userName): Account
+    public function setUserName(?string $userName): static
     {
         $this->userName = $userName;
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getPassword(): ?string
     {
         return $this->password;
     }
-
-    /**
-     * @param string $password
-     * @return Account
-     */
-    public function setPassword(?string $password): Account
+    public function setPassword(?string $password): static
     {
         $this->password = $password;
         return $this;
     }
-
-
 }

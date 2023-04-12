@@ -11,14 +11,11 @@ use PHPMailer\PHPMailer\PHPMailer;
  */
 class Mailer
 {
-    /**
-     * @var Account
-     */
     private Account $account;
+    private PHPMailer $mail;
 
     /**
      * Mailer constructor.
-     * @param Account $account
      */
     public function __construct(Account $account)
     {
@@ -31,41 +28,32 @@ class Mailer
         $this->mail->Port = $account->getPort();
     }
 
-    /**
-     * @param bool $secure
-     * @return $this
-     */
-    public function smtpSecure($secure = false)
+    public function smtpSecure(bool $secure = false): static
     {
-        if(in_array($secure, [false, 'tls', 'ssl']))
-        $this->mail->SMTPSecure = $secure;
+        if (in_array($secure, [false, 'tls', 'ssl']))
+            $this->mail->SMTPSecure = $secure;
         return $this;
     }
 
-    /**
-     * @param bool $auto
-     * @return $this
-     */
-    public function smtpAutoTLS(bool $auto = false)
+    public function smtpAutoTLS(bool $auto = false): static
     {
         $this->mail->SMTPAutoTLS = $auto;
         return $this;
     }
 
     /**
-     * @param Message $message
      * @throws Exception
      */
-    public function send(Message $message) 
+    public function send(Message $message)
     {
         // html message
-        $this->mail->isHTML(true);
+        $this->mail->isHTML();
         $fromRecipient = $message->getFrom();
         $this->mail->setFrom($fromRecipient->getMail(), $fromRecipient->getName());
         foreach ($message->getRecipients() as $recipient) {
             switch ($recipient->getType()) {
                 case Recepient::TO:
-                    $this->mail->addAddress($recipient->getMail(), $recipient->getName()); ;
+                    $this->mail->addAddress($recipient->getMail(), $recipient->getName());
                     break;
                 case Recepient::CC:
                     $this->mail->addCC($recipient->getMail(), $recipient->getName());
@@ -77,13 +65,11 @@ class Mailer
                     $this->mail->addReplyTo($recipient->getMail(), $recipient->getName());
                     break;
                 default:
-                    $this->mail->addAddress($recipient->getMail(), $recipient->getName()); ;
+                    $this->mail->addAddress($recipient->getMail(), $recipient->getName());
 
             }
         }
         $this->mail->Body = $message->getContent();
-
-
 
         //$mail->msgHTML(file_get_contents('contents.html'), __DIR__);
         $debug = '';
@@ -92,21 +78,18 @@ class Mailer
         level 3 = client, server, and connection; will add information about the initial information, might be useful for discovering STARTTLS failures
         level 4 = low-level information.*/
         $this->mail->SMTPDebug = 4;
-        $this->mail->Debugoutput = function($str, $level) use(&$debug){
+        $this->mail->Debugoutput = function ($str, $level) use (&$debug) {
             $debug .= "$level: $str\n";
         };
-        if($this->mail->send()){
+        if ($this->mail->send()) {
             $this->clearAll();
             return true;
-        }else{
+        } else {
             $this->clearAll();
             throw new Exception($debug . '<br>' . $this->mail->ErrorInfo);
         }
     }
 
-    /**
-     * clear all recepients attachments, custom headers
-     */
     private function clearAll()
     {
         $this->mail->clearAllRecipients();
