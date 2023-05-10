@@ -5,18 +5,21 @@ namespace Core\Mail;
 class Account
 {
     private string $host;
-    private int $port = 25;
+    private int $port;
     private ?string $userName;
     private ?string $password;
+    private bool $tls;
 
     /**
      * Account constructor.
      */
-    public function __construct(string $host, ?string $userName, ?string $password)
+    public function __construct(string $host, ?string $userName, ?string $password, string $port = '25', bool $tls = false)
     {
         $this->host = $host;
         $this->userName = $userName;
         $this->password = $password;
+        $this->port = (int)$port;
+        $this->tls = $tls;
     }
 
     public function getHost(): string
