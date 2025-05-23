@@ -23,7 +23,7 @@ class Recepient
     /**
      * Recepient constructor.
      */
-    public function __construct(string $name, string $mail)
+    public function __construct(string $mail, string $name = '')
     {
         $this->name = $name;
         if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
