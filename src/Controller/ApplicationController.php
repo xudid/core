@@ -2,10 +2,10 @@
 
 namespace Xudid\Core\Controller;
 
-use Core\Contracts\ControllerInterface;
-use Core\Contracts\ManagerInterface;
-use Core\Contracts\QueryBuilderInterface;
-use Core\Contracts\RouterInterface;
+use Xudid\Core\Contracts\ControllerInterface;
+use Xudid\Core\Contracts\ManagerInterface;
+use Xudid\Core\Contracts\QueryBuilderInterface;
+use Xudid\Core\Contracts\RouterInterface;
 use Psr\Container\ContainerInterface;
 use function Http\Response\send;
 
