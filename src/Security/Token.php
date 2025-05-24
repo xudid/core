@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Core\Security;
+namespace Xudid\Core\Security;
 
 use DateTimeImmutable;
 

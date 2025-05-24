@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Controller;
+namespace Xudid\Core\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

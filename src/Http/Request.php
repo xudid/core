@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Http;
+namespace Xudid\Core\Http;
 
 use Psr\Http\Message\ServerRequestInterface;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Event;
+namespace Xudid\Core\Event;
 
 /**
  * Class Listener

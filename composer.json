@@ -20,7 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Core\\" : "src"
+      "Xudid\\Core\\" : "src"
     }
   },
   "require-dev": {

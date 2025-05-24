@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\FileSystem;
+namespace Xudid\Core\FileSystem;
 
 use Exception;
 

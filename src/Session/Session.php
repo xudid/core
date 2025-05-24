@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Session;
+namespace Xudid\Core\Session;
 
 use Exception;
 

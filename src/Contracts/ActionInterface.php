@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Contracts;
+namespace Xudid\Core\Contracts;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

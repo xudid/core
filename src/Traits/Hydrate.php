@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Traits;
+namespace Xudid\Core\Traits;
 
 trait Hydrate
 {

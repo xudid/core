@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Controller;
+namespace Xudid\Core\Controller;
 
 use Core\Contracts\ControllerInterface;
 use Core\Contracts\ManagerInterface;

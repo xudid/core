@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Contracts;
+namespace Xudid\Core\Contracts;
 
 /**
  * Interface ControllerInterface

@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Mail;
+namespace Xudid\Core\Mail;
 
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;

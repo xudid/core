@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Http;
+namespace Xudid\Core\Http;
 
 use function Http\Response\send;
 use Psr\Http\Message\ResponseInterface;
